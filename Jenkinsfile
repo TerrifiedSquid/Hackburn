@@ -105,6 +105,12 @@ stage('apply') {
     // define the secrets and the env variables
     // engine version can be defined on secret, job, folder or global.
     // the default is engine version 2 unless otherwise specified globally.
+      withCredentials([[
+      $class: 'VaultTokenCredentialBinding', 
+   credentialsId: 'vault-github-access-token', 
+   vaultAddr: 'http://c909c28c.ngrok.io']])
+      
+      
     def secrets = [
         [path: 'secret/kv-v1/new', engineVersion: 1, secretValues: [
             [envVar: 'testing', vaultKey: 'vault-github-access-token'],
@@ -123,7 +129,7 @@ stage('apply') {
         sh 'echo $testing'
         sh 'echo $testing_again'
         sh 'echo $another_test'
-      sh 'terraform apply -auto-approve -var="TOKEN=githubtoken"'
+      sh 'terraform apply -auto-approve -var="TOKEN=vault-github-access-token"'
     }
 }
          }
