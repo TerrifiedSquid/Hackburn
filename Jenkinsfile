@@ -112,10 +112,10 @@ stage('apply') {
       
       
     def secrets = [
-        [path: 'secret/kv-v1/new/githubtoken', engineVersion: 1, secretValues: [
+        [path: 'kv-v1/new/githubtoken', engineVersion: 1, secretValues: [
             [envVar: 'testing', vaultKey: 'vault-github-access-token'],
             [envVar: 'testing_again', vaultKey: 'vault-github-access-token']]],
-        [path: 'secret/kv-v1/new/githubtoken', engineVersion: 2, secretValues: [
+        [path: 'kv-v1/new/githubtoken', engineVersion: 2, secretValues: [
             [vaultKey: 'vault-github-access-token']]]
     ]
 
