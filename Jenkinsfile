@@ -128,7 +128,6 @@ stage('apply') {
     withVault([configuration: configuration, vaultSecrets: secrets]) {
         sh 'echo $testing'
         sh 'echo $testing_again'
-        sh 'echo $another_test'
       sh 'terraform apply -auto-approve -var="TOKEN=secrets"'
     }
 }
