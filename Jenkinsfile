@@ -105,10 +105,10 @@ stage('apply') {
     // define the secrets and the env variables
     // engine version can be defined on secret, job, folder or global.
     // the default is engine version 2 unless otherwise specified globally.
-      withCredentials([[
-      $class: 'VaultTokenCredentialBinding', 
-   credentialsId: 'vault-github-access-token', 
-   vaultAddr: 'http://c909c28c.ngrok.io']])
+  //    withCredentials([[
+  //    $class: 'VaultTokenCredentialBinding', 
+ //  credentialsId: 'vault-github-access-token', 
+ //  vaultAddr: 'http://c909c28c.ngrok.io']])
       
       
     def secrets = [
