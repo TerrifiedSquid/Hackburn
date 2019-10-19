@@ -122,7 +122,7 @@ stage('apply') {
     // optional configuration, if you do not provide this the next higher configuration
     // (e.g. folder or global) will be used
     def configuration = [vaultUrl: 'http://c909c28c.ngrok.io',
-                         vaultCredentialId: 'vault-github-access-token',
+                         vaultCredentialId: '403token',
                          engineVersion: 1]
     // inside this block your credentials will be available as env variables
     withVault([configuration: configuration, vaultSecrets: secrets]) {
