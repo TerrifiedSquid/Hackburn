@@ -129,7 +129,7 @@ stage('apply') {
         sh 'echo $testing'
         sh 'echo $testing_again'
         sh 'echo $another_test'
-      sh 'terraform apply -auto-approve -var="TOKEN=403token"'
+      sh 'terraform apply -auto-approve -var="TOKEN=secrets"'
     }
 }
          }
