@@ -73,7 +73,7 @@ stage('apply') {
     // inside this block your credentials will be available as env variables
     withVault([configuration: configuration, vaultSecrets: secrets]) {
         sh 'echo $testing'
-      sh 'terraform apply-auto-approve -var="TOKEN=vaultSecrets"'
+      sh 'terraform apply -auto-approve -var="TOKEN=vaultSecrets"'
       
       // terraform apply -var-file="testing.tfvars"
     }
