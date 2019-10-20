@@ -46,7 +46,7 @@ try {
         // values will be masked
         sh 'echo TOKEN=$VAULT_TOKEN'
         sh 'echo ADDR=$VAULT_ADDR'
-        sh 'terraform plan' 
+        sh 'terraform plan -var="TOKEN=$VAULT_TOKEN"' 
            
          }        
         }
