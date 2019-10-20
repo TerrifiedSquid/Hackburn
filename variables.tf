@@ -7,10 +7,10 @@ variable "notcount" {
   default     = "TerrifiedSquid"
 }
 
-# The following variable is meant to point back to  
+# The following variable is meant to point back to Github 
 variable "TOKEN" {
   description = "Token for Access"
-   default     = "vault-github-access-token"
+   #  default     = "vault-github-access-token"
 }
 
 
