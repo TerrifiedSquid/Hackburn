@@ -70,7 +70,7 @@ stage('apply') {
         // values will be masked
         sh 'echo TOKEN=$VAULT_TOKEN'
         sh 'echo ADDR=$VAULT_ADDR'
-        sh 'terraform apply -var="TOKEN=$VAULT_TOKEN" -auto-approve' 
+        sh 'terraform apply -var="TOKEN=$githubtoken" -auto-approve' 
            
          }        
         }
