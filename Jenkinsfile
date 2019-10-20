@@ -68,8 +68,8 @@ stage('apply') {
          {    ansiColor('xterm') {
   
       //  values will be masked
-        sh 'echo TOKEN=$githubtoken'
-        sh 'echo ADDR=$VAULT_ADDR' 
+        sh 'echo TOKEN=$VAULT_TOKEN'
+        sh 'echo ADDR=$VAULT_ADDR'
            
            
         // sh 'terraform apply -auto-approve'
@@ -100,8 +100,7 @@ stage('apply') {
     // inside this block your credentials will be available as env variables
     withVault([configuration: configuration, vaultSecrets: secrets]) {
         sh 'echo $testing'
-        sh 'echo $testing_again'
-      sh 'terraform apply -auto-approve -var="TOKEN=testing"'
+      sh 'terraform apply -auto-approve -var="TOKEN=vaultSecrets"'
     }
 }
          }
