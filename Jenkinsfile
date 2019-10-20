@@ -15,12 +15,7 @@ try {
       node {
        withCredentials([[
       
-  //   $class: 'AmazonWebServicesCredentialsBinding',
-  //      credentialsId: 'awsCredentials',
-  //    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-  //    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'],
-                        
-  //  [
+  
       $class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
    vaultAddr: 'http://51a3ab4b.ngrok.io']]) 
@@ -43,12 +38,6 @@ try {
     node {
        withCredentials([[
       
- //    $class: 'AmazonWebServicesCredentialsBinding',
-//        credentialsId: 'awsCredentials',
- //     accessKeyVariable: 'AWS_ACCESS_KEY_ID',
- //     secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'],
-                        
-  //  [
      $class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
    vaultAddr: 'http://51a3ab4b.ngrok.io']]) 
@@ -73,12 +62,6 @@ stage('apply') {
       node {
        withCredentials([[
       
-   //  $class: 'AmazonWebServicesCredentialsBinding',
-  //      credentialsId: 'awsCredentials',
-   //   accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-   //   secretKeyVariable: 'AWS_SECRET_ACCESS_KEY' ],
-                        
-  //  [
       $class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
    vaultAddr: 'http://51a3ab4b.ngrok.io']]) 
@@ -102,21 +85,11 @@ stage('apply') {
     //Second apply stage 
     stage('apply 2') {
     node {
-    // define the secrets and the env variables
-    // engine version can be defined on secret, job, folder or global.
-    // the default is engine version 2 unless otherwise specified globally.
-  //    withCredentials([[
-  //    $class: 'VaultTokenCredentialBinding', 
- //  credentialsId: 'vault-github-access-token', 
- //  vaultAddr: 'http://51a3ab4b.ngrok.io']])
-      
-      
+   
     def secrets = [
         [path: 'kv-v1/new', engineVersion: 1, secretValues: [
-            [envVar: 'testing', vaultKey: 'githubtoken'],
-            [envVar: 'testing_again', vaultKey: 'githubtoken']]],
-      //  [path: 'kv-v1/new', engineVersion: 2, secretValues: [
-       //     [vaultKey: 'githubtoken']]]
+            [envVar: 'testing', vaultKey: 'githubtoken']]],
+
     ]
 
     // optional configuration, if you do not provide this the next higher configuration
@@ -146,12 +119,6 @@ stage('apply') {
       node {
        withCredentials([[
       
- //    $class: 'AmazonWebServicesCredentialsBinding',
- //       credentialsId: 'awsCredentials',
- //     accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-  //    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'],
-                        
-   // [
       $class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
    vaultAddr: 'http://51a3ab4b.ngrok.io']]) 
