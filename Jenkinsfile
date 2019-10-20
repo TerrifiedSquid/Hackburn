@@ -73,9 +73,9 @@ stage('apply') {
                          vaultCredentialId: '403token',
                          engineVersion: 1]
     // inside this block your credentials will be available as env variables
-    withVault([configuration: configuration, vaultSecrets: secrets]) {
+    withVault([configuration: configuration, tokenfetch: secrets]) {
         sh 'echo $testing'
-      sh 'terraform apply -var="TOKEN=vaultSecrets" -auto-approve'
+      sh 'terraform apply -var="TOKEN=tokenfetch" -auto-approve'
     }
 }
          }
