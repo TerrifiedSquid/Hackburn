@@ -63,9 +63,7 @@ stage('apply') {
    
     def secrets = [
         [path: 'kv-v1/new', engineVersion: 1, secretValues: [
-            [envVar: 'testing', vaultKey: 'githubtoken']]],
-
-    ]
+            [envVar: 'testing', vaultKey: 'githubtoken']]]
 
     // optional configuration, if you do not provide this the next higher configuration
     // (e.g. folder or global) will be used
