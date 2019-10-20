@@ -23,7 +23,7 @@ try {
   //  [
       $class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
-   vaultAddr: 'http://f06b3b54.ngrok.io']]) 
+   vaultAddr: 'http://51a3ab4b.ngrok.io']]) 
          {    ansiColor('xterm') {
   
         // values will be masked
@@ -51,7 +51,7 @@ try {
   //  [
      $class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
-   vaultAddr: 'http://f06b3b54.ngrok.io']]) 
+   vaultAddr: 'http://51a3ab4b.ngrok.io']]) 
          {    ansiColor('xterm') {
   
         // values will be masked
@@ -81,7 +81,7 @@ stage('apply') {
   //  [
       $class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
-   vaultAddr: 'http://f06b3b54.ngrok.io']]) 
+   vaultAddr: 'http://51a3ab4b.ngrok.io']]) 
          {    ansiColor('xterm') {
   
       //  values will be masked
@@ -108,7 +108,7 @@ stage('apply') {
   //    withCredentials([[
   //    $class: 'VaultTokenCredentialBinding', 
  //  credentialsId: 'vault-github-access-token', 
- //  vaultAddr: 'http://f06b3b54.ngrok.io']])
+ //  vaultAddr: 'http://51a3ab4b.ngrok.io']])
       
       
     def secrets = [
@@ -121,7 +121,7 @@ stage('apply') {
 
     // optional configuration, if you do not provide this the next higher configuration
     // (e.g. folder or global) will be used
-    def configuration = [vaultUrl: 'http://f06b3b54.ngrok.io',
+    def configuration = [vaultUrl: 'http://51a3ab4b.ngrok.io',
                          vaultCredentialId: '403token',
                          engineVersion: 1]
     // inside this block your credentials will be available as env variables
@@ -154,7 +154,7 @@ stage('apply') {
    // [
       $class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
-   vaultAddr: 'http://f06b3b54.ngrok.io']]) 
+   vaultAddr: 'http://51a3ab4b.ngrok.io']]) 
          {    ansiColor('xterm') {
   
         // values will be masked
