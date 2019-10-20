@@ -59,31 +59,6 @@ try {
     
     // Run terraform apply
 stage('apply') {
-      node {
-       withCredentials([[
-      
-      $class: 'VaultTokenCredentialBinding', 
-   credentialsId: 'vault-github-access-token', 
-   vaultAddr: 'http://51a3ab4b.ngrok.io']]) 
-         {    ansiColor('xterm') {
-  
-      //  values will be masked
-        sh 'echo TOKEN=$VAULT_TOKEN'
-        sh 'echo ADDR=$VAULT_ADDR'
-           
-           
-        // sh 'terraform apply -auto-approve'
-           
-      
-    //    sh 'vault-github-access-token' githubtoken
-           
-         }        
-        }
-       }                   
-      }
-    
-    //Second apply stage 
-    stage('apply 2') {
     node {
    
     def secrets = [
@@ -100,7 +75,7 @@ stage('apply') {
     // inside this block your credentials will be available as env variables
     withVault([configuration: configuration, vaultSecrets: secrets]) {
         sh 'echo $testing'
-      sh 'terraform apply -auto-approve -var="TOKEN=vaultSecrets"'
+      sh 'terraform apply -var="TOKEN=vaultSecrets -auto-approve"'
     }
 }
          }
