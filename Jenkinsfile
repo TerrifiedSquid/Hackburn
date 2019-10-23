@@ -30,7 +30,7 @@ stage('plan ') {
        withCredentials([[
       
      $class: 'VaultTokenCredentialBinding', 
-        // This token is the name of the GitHub Token you stored on Jenkins 
+        // This token is the name of the Vault Token you stored on Jenkins 
    credentialsId: '403token', 
         // This is the name of the vault server that you launced  
    vaultAddr: 'http://d5ee48b1.ngrok.io']]) 
@@ -57,8 +57,8 @@ stage('apply') {
     node {
    
     def secrets = [
-        [path: 'kv-v1/new', engineVersion: 1, secretValues: [
-            [envVar: 'testing', vaultKey: 'githubtoken']]]]
+        [path: 'kv-v1/new', engineVersion: 1, secretValues: 
+            [envVar: 'testing', vaultKey: 'githubtoken']]]
 
     // optional configuration, if you do not provide this the next higher configuration
     // (e.g. folder or global) will be used
@@ -100,10 +100,6 @@ stage('apply') {
        }                   
       }
       
-    
-    
-    
-    
   currentBuild.result = 'SUCCESS'
 }
 catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException flowError) {
