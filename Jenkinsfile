@@ -14,13 +14,13 @@ try {
   stage('init') {
       node {
 
-         {    ansiColor('xterm') {
+             ansiColor('xterm') {
            sh 'terraform init' 
            
          }        
         }
        }                   
-      }
+      
 
  
 
