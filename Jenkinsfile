@@ -27,22 +27,14 @@ try {
   // Run terraform plan
   stage('plan ') {
     node {
-       withCredentials([[
-      
-     $class: 'VaultTokenCredentialBinding', 
-   credentialsId: 'vault-github-access-token', 
-   vaultAddr: 'http://d5ee48b1.ngrok.io']]) 
-         {    ansiColor('xterm') {
-  
-        // values will be masked
-        sh 'echo TOKEN=$VAULT_TOKEN'
-        sh 'echo ADDR=$VAULT_ADDR'
+       
+             ansiColor('xterm') {
         sh 'terraform plan -var="TOKEN=$VAULT_TOKEN"' 
            
          }        
         }
        }                   
-      }
+      
   
   
 
