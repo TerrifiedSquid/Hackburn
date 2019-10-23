@@ -31,7 +31,7 @@ stage('plan ') {
       
      $class: 'VaultTokenCredentialBinding', 
         // This token is the name of the GitHub Token you stored on Jenkins 
-   credentialsId: '403token' 
+   credentialsId: '403token', 
         // This is the name of the vault server that you launced  
    vaultAddr: 'http://d5ee48b1.ngrok.io']]) 
          {    ansiColor('xterm') {
