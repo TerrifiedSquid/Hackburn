@@ -4,10 +4,11 @@
   } 
 
 
- resource "github_membership" "dogi" {
- username = "dogi"
- role = "member" 
- }
+resource "github_team" "Baluga" {
+name        = "Baluga"
+description = "Baluga team"
+privacy     = "closed"
+}
 
 
 
